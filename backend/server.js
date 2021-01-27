@@ -8,12 +8,16 @@ import colors from "colors";
 
 // custom files for import
 import connectDB from "./config/db.js";
+import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
 // api routes
-import productRoutes from './routes/productRoutes.js'
+import productRoutes from "./routes/productRoutes.js";
 
 //////////////////////////////////////////////////////////////////
 // Server Setup
+
+// define server port
+const PORT = process.env.PORT || 5000;
 
 // enable .env functionality
 dotenv.config();
@@ -31,11 +35,12 @@ app.get("/", (req, res) => {
   res.send("API is running");
 });
 
-app.use("/api/products", productRoutes)
+app.use("/api/products", productRoutes);
 
-
-
-const PORT = process.env.PORT || 5000;
+//////////////////////////////////////////////////////////////////
+// Middlewares
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(
   PORT,
