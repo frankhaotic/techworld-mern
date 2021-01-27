@@ -1,10 +1,28 @@
+////////////////////////////////////////////////////////////////
+// Imports
+
+// npm package imports
 import express from "express";
 import dotenv from "dotenv";
+
+// custom files for import
+import connectDB from "./config/db.js";
 import products from "./data/products.js";
 
+//////////////////////////////////////////////////////////////////
+// Server Setup
+
+// enable .env functionality
 dotenv.config();
 
+// connect to local MongoDB (from config/db.js)
+connectDB();
+
+// declare and initiate express application
 const app = express();
+
+//////////////////////////////////////////////////////////////////
+// Routes
 
 app.get("/", (req, res) => {
   res.send("API is running");
