@@ -1,0 +1,29 @@
+{
+  "name": "mern_ecommerce_site",
+  "version": "1.0.0",
+  "description": "MERN eCommerce Site",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frankhaotic/mern-ecommerce.git"
+  },
+  "keywords": [
+    "MERN",
+    "MongoDB",
+    "React",
+    "Express",
+    "NodeJS"
+  ],
+  "author": "Frankie Flood",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frankhaotic/mern-ecommerce/issues"
+  },
+  "homepage": "https://github.com/frankhaotic/mern-ecommerce#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
