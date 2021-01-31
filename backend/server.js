@@ -12,6 +12,7 @@ import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
 // api routes
 import productRoutes from "./routes/productRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 //////////////////////////////////////////////////////////////////
 // Server Setup
@@ -28,6 +29,9 @@ connectDB();
 // declare and initiate express application
 const app = express();
 
+// setup the body-parser
+app.use(express.json());
+
 //////////////////////////////////////////////////////////////////
 // Routes
 
@@ -36,6 +40,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/products", productRoutes);
+app.use("/api/users", userRoutes);
 
 //////////////////////////////////////////////////////////////////
 // Middlewares
