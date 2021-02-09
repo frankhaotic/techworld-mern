@@ -13,7 +13,6 @@ const PlaceOrderScreen = () => {
   };
 
   // Calculate Prices
-
   cart.itemsPrice = addDecimals(
     cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
   );
