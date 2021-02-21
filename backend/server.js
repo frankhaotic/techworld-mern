@@ -6,6 +6,7 @@ import path from "path";
 import express from "express";
 import dotenv from "dotenv";
 import colors from "colors";
+import morgan from "morgan";
 
 // custom files for import
 import connectDB from "./config/db.js";
@@ -31,6 +32,11 @@ connectDB();
 
 // declare and initiate express application
 const app = express();
+
+// initialise the morgan logger in development mode
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
 
 // setup the body-parser
 app.use(express.json());
