@@ -15,6 +15,7 @@ import {
 import Rating from "../components/Rating";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
+import Meta from "../components/Meta";
 
 // redux actions
 import {
@@ -80,6 +81,7 @@ const ProductScreen = ({ history, match }) => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
+          <Meta title={`Proshop | ${product.name}`} />
           <Row>
             <Col md={6}>
               <Image src={product.image} alt={product.name} fluid></Image>
