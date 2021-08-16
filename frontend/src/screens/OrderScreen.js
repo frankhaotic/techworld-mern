@@ -15,7 +15,9 @@ import {
   ORDER_PAY_RESET,
   ORDER_DELIVER_RESET,
 } from '../constants/orderConstants'
+// import { CART_RESET_ITEMS } from '../constants/cartConstants'
 import StripeContainer from '../components/StripeContainer'
+import { resetCart } from '../actions/cartActions'
 
 const OrderScreen = ({ match, history }) => {
   const orderId = match.params.id
@@ -84,8 +86,8 @@ const OrderScreen = ({ match, history }) => {
   }, [dispatch, order, orderId, userInfo, successPay, successDeliver, history])
 
   const successPaymentHandler = (paymentResult) => {
-    console.log('hi from success handler', paymentResult)
     dispatch(payOrder(orderId, paymentResult))
+    dispatch(resetCart())
   }
 
   const deliverHandler = () => {
@@ -209,7 +211,6 @@ const OrderScreen = ({ match, history }) => {
                 <ListGroup.Item>
                   {console.log(order.paymentMethod)}
                   {loadingPay && <Loader />}
-                  {/* TODO: Check if Stripe or Paypal Here */}
                   {order.paymentMethod === 'Stripe' ? (
                     <>
                       <StripeContainer

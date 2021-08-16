@@ -65,9 +65,6 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
   if (order) {
     order.isPaid = true
     order.paidAt = Date.now()
-    console.log('order', order)
-    console.log('order', order.paidAt)
-    console.log('order', typeof order.paidAt)
 
     if (req.body.intent === 'CAPTURE') {
       order.paymentResult = {

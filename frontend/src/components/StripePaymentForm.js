@@ -53,7 +53,7 @@ const StripePaymentForm = ({ amount, onSuccess }) => {
           onSuccess(response)
         }
       } catch (error) {
-        console.log('error alert!', error.message)
+        console.log('error in stripe payment form', error.message)
         onSuccess(false)
       }
     }
@@ -71,7 +71,7 @@ const StripePaymentForm = ({ amount, onSuccess }) => {
           <button className="custom_stripe_button">Pay</button>
         </form>
       ) : (
-        <p>Enjoy your shit</p>
+        <h3>Thank you for shopping</h3>
       )}
     </>
   )
