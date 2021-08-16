@@ -1,24 +1,24 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { Carousel, Image } from "react-bootstrap";
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { Carousel, Image } from 'react-bootstrap'
 
 // custom imports
-import Loader from "./Loader";
-import Message from "./Message";
+import Loader from './Loader'
+import Message from './Message'
 
 // redux imports
-import { listTopProducts } from "../actions/productActions";
+import { listTopProducts } from '../actions/productActions'
 
 const ProductCarousel = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const productTopRated = useSelector((state) => state.productTopRated);
-  const { loading, error, products } = productTopRated;
+  const productTopRated = useSelector((state) => state.productTopRated)
+  const { loading, error, products } = productTopRated
 
   useEffect(() => {
-    dispatch(listTopProducts());
-  }, [dispatch]);
+    dispatch(listTopProducts())
+  }, [dispatch])
 
   return loading ? (
     <Loader />
@@ -31,7 +31,7 @@ const ProductCarousel = () => {
           <Link to={`/product/${product._id}`}>
             <Image src={product.image} alt={product.name} fluid />
             <Carousel.Caption className="carousel-caption">
-              <h2>
+              <h2 id="custom__show__text">
                 {product.name} (€{product.price})
               </h2>
             </Carousel.Caption>
@@ -39,7 +39,7 @@ const ProductCarousel = () => {
         </Carousel.Item>
       ))}
     </Carousel>
-  );
-};
+  )
+}
 
-export default ProductCarousel;
+export default ProductCarousel
