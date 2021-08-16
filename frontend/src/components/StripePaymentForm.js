@@ -40,7 +40,7 @@ const StripePaymentForm = ({ amount, onSuccess }) => {
       try {
         const { id } = paymentMethod
         const response = await axios.post(
-          'http://localhost:5000/api/config/stripe/',
+          'https://localhost:5000/api/config/stripe/',
           {
             amount: finalAmount,
             id,
