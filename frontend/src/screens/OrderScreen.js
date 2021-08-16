@@ -59,11 +59,6 @@ const OrderScreen = ({ match, history }) => {
     if (!userInfo) {
       history.push('/login')
     }
-    if (!order || order._id !== orderId) {
-      dispatch({ type: ORDER_PAY_RESET })
-      dispatch({ type: ORDER_DELIVER_RESET })
-      dispatch(getOrderDetails(orderId))
-    }
 
     const addPayPalScript = async () => {
       const { data: clientId } = await axios.get('/api/config/paypal')
